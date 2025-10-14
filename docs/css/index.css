@@ -1,5 +1,5 @@
 
-/* 一级标题整体容器 */
+/* 二级标题整体容器 */
 h2.custom-title {
     display: flex;
     align-items: center;
@@ -92,51 +92,264 @@ body {
     overflow: auto !important;
 }
 
-/* ========== Mac 风格代码块顶部三个点 ========== */
-/* 适配 Docsify 的结构 */
+/* ========== VSCode 风格代码块样式 ========== */
 .markdown-section pre {
-    position: relative; /* 让伪元素相对定位生效 */
-    padding-top: 2rem;  /* 给三个点留出顶部空间 */
-    border-radius: 8px;
-    background-color: #2d2d2d; /* 保持深色背景 */
+    position: relative;
+    background-color: #1e1e1e !important;
+    color: #d4d4d4;
+    border-radius: 6px;
+    padding: 3.5rem 1rem 1rem 1rem !important; /* 增加顶部padding给装饰元素留空间 */
+    margin: 1.5em 0;
     overflow-x: auto;
+    font-family: 'Cascadia Code', 'Consolas', 'Monaco', 'Menlo', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 1px solid #333;
 }
 
-/* 添加三个点 */
+/* ========== Mac 风格顶部三个点 ========== */
 .markdown-section pre::before {
     content: '';
     position: absolute;
-    top: 8px;
+    top: 14px; /* 向下调整位置 */
     left: 12px;
-    width: 0.6rem;
-    height: 0.6rem;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    background: #fa3534; /* 红色点 */
-    box-shadow: 0.9rem 0 0 #ff9900, 1.8rem 0 0 #19be6b; /* 橙 + 绿 */
-    z-index: 2;
+    background: #ff5f56;
+    box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27ca3f;
+    z-index: 2; /* 确保在标题栏之上 */
 }
 
-/* 调整复制按钮位置，避免遮挡 */
-.docsify-copy-code-button {
-    top: 4px !important;
-    right: 8px !important;
-    opacity: 0.8;
-}
 
-/* 鼠标悬停按钮更明显 */
-.docsify-copy-code-button:hover {
-    opacity: 1;
-}
-
-/* 模拟顶部灰条 */
+/* 顶部标题栏背景 */
 .markdown-section pre::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 1.5rem;
-    background: #3b3b3b;
-    border-radius: 8px 8px 0 0;
+    height: 40px; /* 增加高度确保不遮挡代码 */
+    background: #2d2d2d;
+    border-radius: 6px 6px 0 0;
+    border-bottom: 1px solid #404040;
+    z-index: 1;
+}
+
+/* ========== VSCode 语法高亮配色 ========== */
+/* 注释 */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #6a9955 !important; /* 绿色 */
+    font-style: italic;
+}
+
+/* 关键字 */
+.token.keyword,
+.token.operator,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #c586c0 !important; /* 紫色 */
+}
+
+/* 字符串 */
+.token.string,
+.token.char,
+.token.attr-value,
+.token.builtin,
+.token.inserted {
+    color: #ce9178 !important; /* 橙红色 */
+}
+
+/* 变量和函数名 */
+.token.variable,
+.token.function {
+    color: #dcdcaa !important; /* 浅黄色 */
+}
+
+/* 类名和类型 */
+.token.class-name,
+.token.tag {
+    color: #4ec9b0 !important; /* 青绿色 */
+}
+
+/* 属性名 */
+.token.attr-name,
+.token.selector,
+.token.property {
+    color: #9cdcfe !important; /* 浅蓝色 */
+}
+
+/* 标点符号 */
+.token.punctuation {
+    color: #d4d4d4 !important; /* 浅灰色 */
+}
+
+/* 内置对象和方法 */
+.token.builtin {
+    color: #4fc1ff !important; /* 蓝色 */
+}
+
+/* 正则表达式 */
+.token.regex {
+    color: #d16969 !important; /* 红色 */
+}
+
+/* 重要和转义字符 */
+.token.important {
+    color: #569cd6 !important; /* 蓝色 */
+}
+
+/* ========== 调整复制按钮位置 ========== */
+.docsify-copy-code-button {
+    position: absolute;
+    top: 10px !important; /* 向下调整 */
+    right: 12px !important;
+    background: #404040 !important;
+    color: #ccc !important;
+    border: none !important;
+    border-radius: 3px;
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+    z-index: 3; /* 确保在最上层 */
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+
+.docsify-copy-code-button:hover {
+    background: #505050 !important;
+    color: #fff !important;
+    opacity: 1;
+}
+
+/* ========== 代码块滚动条样式 ========== */
+.markdown-section pre::-webkit-scrollbar {
+    height: 8px;
+    background: #2d2d2d;
+}
+
+.markdown-section pre::-webkit-scrollbar-thumb {
+    background: #505050;
+    border-radius: 4px;
+}
+
+.markdown-section pre::-webkit-scrollbar-thumb:hover {
+    background: #606060;
+}
+
+/* ========== 行内代码样式调整 ========== */
+.markdown-section code {
+    background-color: rgba(158, 158, 158, 0.1) !important; /* 浅灰背景 */
+    color: #e06c75 !important; /* 红色字体 */
+    padding: 2px 6px !important;
+    border-radius: 3px;
+    font-family: 'Consolas', 'Monaco', 'Menlo', monospace;
+    font-size: 0.9em;
+    border: none;
+}
+
+/* ========== 代码块选中文本样式 ========== */
+.markdown-section pre ::selection {
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.markdown-section pre ::-moz-selection {
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* ========== 确保 Prism 主题不会覆盖我们的样式 ========== */
+.markdown-section pre[class*="language-"] {
+    background: #1e1e1e !important;
+}
+
+/* ========== 特定语言样式微调 ========== */
+/* Java 语言特定样式 */
+.language-java .token.class-name {
+    color: #4ec9b0 !important;
+}
+
+.language-java .token.keyword {
+    color: #c586c0 !important;
+}
+
+/* Bash/Shell 语言特定样式 */
+.language-bash .token.function {
+    color: #dcdcaa !important;
+}
+
+.language-bash .token.operator {
+    color: #d4d4d4 !important;
+}
+
+/* ========== 增强操作符可见性 ========== */
+/* 等号、操作符 - 提高对比度 */
+.token.operator,
+.token.punctuation {
+    color: #d4d4d4 !important; /* 更亮的白色 */
+    font-weight: 500; /* 稍微加粗 */
+}
+
+/* 特别增强等号的可见性 */
+.token.operator[style*="color"] {
+    color: #ffffff !important; /* 纯白色 */
+    font-weight: 600;
+}
+
+/* 数学操作符 */
+.token.operator.math {
+    color: #ffffff !important;
+}
+
+/* 比较操作符 */
+.token.operator.comparison {
+    color: #ffffff !important;
+}
+
+/* 赋值操作符 */
+.token.operator.assignment {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+/* 增强所有标点符号的可见性 */
+.token.punctuation {
+    color: #e0e0e0 !important; /* 亮灰色 */
+}
+
+/* 分号、逗号等 */
+.token.punctuation.semicolon,
+.token.punctuation.comma {
+    color: #d4d4d4 !important;
+}
+
+/* 括号 */
+.token.punctuation.bracket {
+    color: #d4d4d4 !important;
+}
+
+/* 大括号 */
+.token.punctuation.brace {
+    color: #d4d4d4 !important;
+}
+
+/* ========== 特定语言的操作符增强 ========== */
+/* Java 语言的操作符 */
+.language-java .token.operator {
+    color: #ffffff !important;
+    font-weight: 500;
+}
+
+.language-java .token.punctuation {
+    color: #e0e0e0 !important;
+}
+
+/* 针对等号的特殊处理 */
+.language-java .token.operator:nth-child(n) {
+    color: #ffffff !important;
 }
 
