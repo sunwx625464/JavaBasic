@@ -298,7 +298,7 @@ public class MathMinExample {
 
 在实际开发中，经常需要将一种数值类型转换为另一种数值类型。
 
-![image-20251012191233135](/Users/weixinsun/project/blog/docsify/docs/img/image-20251012191233135.png)
+![image-20251012191233135](../img/image-20251012191233135.png)
 
 图中的实线箭头表示无信息丢失的转换；虚线剪头表示可能有精度损失的转换。
 
