@@ -1,4 +1,5 @@
 # Java语言概述
+
 ## Java语言的特点
 
 - 简单性
@@ -63,3 +64,26 @@ javac Welcome.java // 编译
 java Welcome // 运行
 ```
 
+## 注释
+
+源文件中用于解释、说明程序的文字就是注释。Java中注释有三种类型：
+
+```java
+// 单行注释
+
+/*
+* 多行注释
+*/
+
+/**
+* 文档注释，Java特有
+* @author 作者
+* @version 版本
+*/
+```
+
+> 文档注释内容可以被JDK提供的工具javadoc解析，生成一套以网页文件形式体现的该程序的说明文档
+>
+> 操作方式:
+>
+> javadoc -d mydoc -author -version HelloWorld.java
