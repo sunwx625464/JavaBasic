@@ -9,8 +9,8 @@
 ## 目录
 * Java语言概述
     * [Java语言概述](basic/Java语言概述)
-* Java程序设计基础
-    * [Java基本语法](basic/Java基本语法)
+* Java基本语法
+    * [变量与运算符](basic/变量与运算符)
     * [流程控制](basic/流程控制.md)
     * [数组](basic/数组.md)
 * Java核心
